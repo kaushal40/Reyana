@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { Nav } from '@/components/Nav';
 import { Footer } from '@/components/Footer';
@@ -9,7 +9,7 @@ import { products, type Product } from '@/data/products';
 
 type Filter = 'all' | 'men' | 'women';
 
-export default function CollectionsPage() {
+function CollectionsContent() {
   const searchParams = useSearchParams();
   const [filter, setFilter] = useState<Filter>('all');
   const [picked, setPicked] = useState<Product | null>(null);
@@ -155,5 +155,13 @@ export default function CollectionsPage() {
 
       {picked && <PreOrderModal product={picked} onClose={() => setPicked(null)} />}
     </>
+  );
+}
+
+export default function CollectionsPage() {
+  return (
+    <Suspense>
+      <CollectionsContent />
+    </Suspense>
   );
 }
