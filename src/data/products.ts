@@ -1,0 +1,162 @@
+export interface Product {
+  id: string;
+  name: string;
+  subtitle: string;
+  category: 'men' | 'women';
+  price: number;
+  fabric: string;
+  craft: string;
+  origin: string;
+  description: string;
+  fabricClass: string;
+  labelColor: string;
+  sizes: string[];
+  deliveryEstimate: string;
+  tag?: string;
+}
+
+export const products: Product[] = [
+  // ── Men's ──────────────────────────────────────────────────────
+  {
+    id: 'lucknow-classic-tee',
+    name: 'The Lucknow Classic',
+    subtitle: 'Chikankari Tee',
+    category: 'men',
+    price: 68,
+    fabric: '100% Egyptian Cotton',
+    craft: 'Chikankari Embroidery',
+    origin: 'Lucknow, UP',
+    description: 'A wardrobe essential reborn. Our classic tee is hand-embroidered with delicate Chikankari floral motifs across the chest — by artisans in the heart of Lucknow. Worn loose, tucked in, or layered. Ivory white.',
+    fabricClass: 'fabric-chikankari',
+    labelColor: 'text-brown',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    deliveryEstimate: 'Ships in 6–8 weeks',
+    tag: 'Bestseller',
+  },
+  {
+    id: 'heritage-linen-shirt',
+    name: 'The Heritage',
+    subtitle: 'Chikankari Linen Shirt',
+    category: 'men',
+    price: 145,
+    fabric: 'Belgian Linen Blend',
+    craft: 'Chikankari Embroidery',
+    origin: 'Lucknow, UP',
+    description: 'Structured yet relaxed. Belgian linen in warm ecru, with Chikankari detailing at the collar, cuffs, and placket. A shirt that earns a second look.',
+    fabricClass: 'fabric-champagne',
+    labelColor: 'text-brown',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    deliveryEstimate: 'Ships in 6–8 weeks',
+  },
+  {
+    id: 'artisan-block-shirt',
+    name: 'The Artisan',
+    subtitle: 'Hand Block Print Shirt',
+    category: 'men',
+    price: 125,
+    fabric: 'Handspun Cotton',
+    craft: 'Hand Block Printing',
+    origin: 'Jaipur, Rajasthan',
+    description: 'Deep indigo, hand-blocked with geometric motifs by master printers in Jaipur. A relaxed open-collar shirt that moves between boardroom and weekend effortlessly.',
+    fabricClass: 'fabric-block-indigo',
+    labelColor: 'text-white',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    deliveryEstimate: 'Ships in 6–8 weeks',
+  },
+  {
+    id: 'nawab-polo',
+    name: 'The Nawab',
+    subtitle: 'Chikankari Polo',
+    category: 'men',
+    price: 95,
+    fabric: 'Pima Cotton Piqué',
+    craft: 'Chikankari Embroidery',
+    origin: 'Lucknow, UP',
+    description: 'The polo, elevated. A champagne-toned Pima cotton piqué polo with an embroidered Chikankari front panel — subtle enough for the office, refined enough for everywhere else.',
+    fabricClass: 'fabric-champagne',
+    labelColor: 'text-brown',
+    sizes: ['XS', 'S', 'M', 'L', 'XL', '2XL'],
+    deliveryEstimate: 'Ships in 6–8 weeks',
+    tag: 'New',
+  },
+
+  // ── Women's ────────────────────────────────────────────────────
+  {
+    id: 'begum-midi-dress',
+    name: 'The Begum',
+    subtitle: 'Chikankari Midi Dress',
+    category: 'women',
+    price: 245,
+    fabric: 'Silk-Cotton Blend',
+    craft: 'Chikankari Embroidery',
+    origin: 'Lucknow, UP',
+    description: 'Our most coveted silhouette. A gathered midi dress in ivory silk-cotton, entirely hand-embroidered with full-front Chikankari floral sprays. A dress that feels like wearing a poem.',
+    fabricClass: 'fabric-chikankari',
+    labelColor: 'text-brown',
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    deliveryEstimate: 'Ships in 8–10 weeks',
+    tag: 'Signature',
+  },
+  {
+    id: 'jaipur-wrap-dress',
+    name: 'The Jaipur',
+    subtitle: 'Block Print Wrap Dress',
+    category: 'women',
+    price: 195,
+    fabric: '100% Handloom Cotton',
+    craft: 'Hand Block Printing',
+    origin: 'Jaipur, Rajasthan',
+    description: 'Sun-warmed terracotta, hand-blocked with overlapping botanical motifs from a centuries-old Jaipur carvery. A wrap silhouette that flatters every form.',
+    fabricClass: 'fabric-terracotta',
+    labelColor: 'text-white',
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    deliveryEstimate: 'Ships in 6–8 weeks',
+    tag: 'New',
+  },
+  {
+    id: 'zari-coord-set',
+    name: 'The Zari',
+    subtitle: 'Chikankari Co-ord Set',
+    category: 'women',
+    price: 320,
+    fabric: 'European Linen',
+    craft: 'Chikankari + Zari Work',
+    origin: 'Lucknow, UP',
+    description: 'Sage linen co-ord — a tailored wide-leg trouser and a structured blouse — embroidered with Chikankari and traced in fine gold Zari thread. Wears beautifully to every occasion that matters.',
+    fabricClass: 'fabric-sage',
+    labelColor: 'text-white',
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    deliveryEstimate: 'Ships in 8–10 weeks',
+  },
+  {
+    id: 'mehrab-blouse',
+    name: 'The Mehrab',
+    subtitle: 'Block Print Blouse',
+    category: 'women',
+    price: 115,
+    fabric: 'Handspun Cotton',
+    craft: 'Hand Block Printing',
+    origin: 'Jaipur, Rajasthan',
+    description: 'Named for the arched motifs that adorn it. A relaxed cream blouse with rich indigo geometric block print, gathered cuffs, and a subtle V-collar. Pairs with everything.',
+    fabricClass: 'fabric-chikankari',
+    labelColor: 'text-brown',
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    deliveryEstimate: 'Ships in 6–8 weeks',
+  },
+  {
+    id: 'rosebud-kaftan',
+    name: 'The Rosebud',
+    subtitle: 'Chikankari Kaftan',
+    category: 'women',
+    price: 175,
+    fabric: 'Voile Cotton',
+    craft: 'Chikankari Embroidery',
+    origin: 'Lucknow, UP',
+    description: 'Flowing voile cotton, white as first light. All-over Chikankari rosebud motifs worked by hand. Loose, ethereal, and made to move. A statement in stillness.',
+    fabricClass: 'fabric-rose',
+    labelColor: 'text-brown',
+    sizes: ['XS', 'S', 'M', 'L', 'XL'],
+    deliveryEstimate: 'Ships in 8–10 weeks',
+    tag: 'Signature',
+  },
+];
