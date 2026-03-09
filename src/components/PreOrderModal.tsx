@@ -24,43 +24,60 @@ export function PreOrderModal({ product, onClose }: Props) {
   }
 
   return (
-    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brown/60 backdrop-blur-sm">
-      <div className="bg-ivory w-full max-w-2xl max-h-[92vh] overflow-y-auto relative">
-
+    /* Backdrop — tap anywhere outside to close */
+    <div
+      className="fixed inset-0 z-[100] flex items-end sm:items-center justify-center bg-brown/60 backdrop-blur-sm"
+      onClick={onClose}
+    >
+      {/* Modal panel — stop click propagation so tapping inside doesn't close */}
+      <div
+        className="bg-ivory w-full sm:max-w-2xl sm:mx-4 max-h-[95vh] overflow-y-auto relative
+                   rounded-t-2xl sm:rounded-2xl"
+        onClick={e => e.stopPropagation()}
+      >
         {/* Top accent strip */}
-        <div className="h-1 bg-gradient-to-r from-terracotta via-gold to-sage" />
+        <div className="h-1 bg-gradient-to-r from-terracotta via-gold to-indigo rounded-t-2xl sm:rounded-t-2xl" />
 
-        {/* Close */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-5 z-10 text-brown/40 hover:text-brown text-2xl leading-none transition-colors"
-        >
-          ×
-        </button>
+        {/* Mobile drag handle + Close bar */}
+        <div className="flex items-center justify-between px-5 pt-4 pb-2">
+          {/* Drag indicator (decorative) */}
+          <div className="w-10 h-1 bg-sand rounded-full mx-auto absolute left-1/2 -translate-x-1/2 top-3" />
+          {/* Spacer */}
+          <div />
+          {/* Close button — large tap target */}
+          <button
+            onClick={onClose}
+            className="ml-auto flex items-center justify-center w-10 h-10 rounded-full bg-sand/60 hover:bg-sand text-brown/60 hover:text-brown text-xl transition-all duration-200"
+            aria-label="Close"
+          >
+            ×
+          </button>
+        </div>
 
         {/* Product images */}
         {product.images && product.images.length > 0 && (
-          <div className="flex gap-1">
-            {/* Main image */}
-            <div className="relative flex-1 aspect-[4/3] overflow-hidden bg-sand">
+          <div className="flex gap-1 px-1">
+            {/* Main image — full portrait, object-contain so nothing is cropped */}
+            <div className="relative flex-1 bg-cream overflow-hidden" style={{ aspectRatio: '3/4' }}>
               <img
                 src={product.images[activeImg]}
                 alt={product.name}
-                className="w-full h-full object-cover transition-opacity duration-300"
+                className="w-full h-full object-contain transition-opacity duration-300"
               />
             </div>
             {/* Thumbnails */}
             {product.images.length > 1 && (
-              <div className="flex flex-col gap-1 w-16">
+              <div className="flex flex-col gap-1 w-16 sm:w-20">
                 {product.images.map((img, i) => (
                   <button
                     key={i}
                     onClick={() => setActiveImg(i)}
-                    className={`aspect-square overflow-hidden border-2 transition-all duration-200 ${
-                      activeImg === i ? 'border-gold' : 'border-transparent opacity-60 hover:opacity-100'
+                    className={`relative overflow-hidden border-2 transition-all duration-200 ${
+                      activeImg === i ? 'border-gold' : 'border-transparent opacity-50 hover:opacity-90'
                     }`}
+                    style={{ aspectRatio: '3/4' }}
                   >
-                    <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" />
+                    <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-contain bg-cream" />
                   </button>
                 ))}
               </div>
@@ -68,14 +85,12 @@ export function PreOrderModal({ product, onClose }: Props) {
           </div>
         )}
 
-        <div className="px-8 py-8">
+        <div className="px-5 sm:px-8 py-6">
           {submitted ? (
             <div className="text-center py-8">
               <div className="text-4xl mb-4">✦</div>
               <h3 className="font-display text-2xl text-indigo mb-3">You're on the list.</h3>
-              <p className="font-serif italic text-gold text-lg mb-6">
-                "Good things take time."
-              </p>
+              <p className="font-serif italic text-gold text-lg mb-6">"Good things take time."</p>
               <p className="font-sans text-sm text-brown/70 leading-relaxed mb-2">
                 We've reserved <strong>{product.name}</strong> in size <strong>{size}</strong> for{' '}
                 <strong>{name}</strong>.
@@ -91,7 +106,7 @@ export function PreOrderModal({ product, onClose }: Props) {
           ) : (
             <>
               {/* Product info */}
-              <div className="mb-8 pb-6 border-b border-sand">
+              <div className="mb-6 pb-5 border-b border-sand">
                 <p className="section-label mb-2">Pre-Order</p>
                 <h3 className="font-display text-2xl text-indigo mb-1">{product.name}</h3>
                 <p className="font-sans text-sm text-brown/60 mb-3">{product.subtitle}</p>
@@ -103,7 +118,7 @@ export function PreOrderModal({ product, onClose }: Props) {
                 <p className="font-sans text-xs text-brown/50 mt-1">{product.fabric} — {product.craft}</p>
               </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-5">
                 {/* Size */}
                 <div>
                   <p className="text-xs font-sans tracking-[0.15em] uppercase text-brown/70 mb-3">Select Size</p>
@@ -113,7 +128,7 @@ export function PreOrderModal({ product, onClose }: Props) {
                         key={s}
                         type="button"
                         onClick={() => setSize(s)}
-                        className={`w-12 h-10 text-xs font-sans font-medium tracking-wider border transition-all duration-200 ${
+                        className={`w-12 h-11 text-xs font-sans font-medium tracking-wider border transition-all duration-200 ${
                           size === s
                             ? 'bg-indigo text-ivory border-indigo'
                             : 'bg-transparent text-brown border-sand hover:border-indigo'
@@ -125,26 +140,20 @@ export function PreOrderModal({ product, onClose }: Props) {
                   </div>
                 </div>
 
-                {/* Name */}
-                <div>
-                  <input
-                    className="field"
-                    placeholder="Your full name"
-                    value={name}
-                    onChange={e => setName(e.target.value)}
-                  />
-                </div>
+                <input
+                  className="field"
+                  placeholder="Your full name"
+                  value={name}
+                  onChange={e => setName(e.target.value)}
+                />
 
-                {/* Email */}
-                <div>
-                  <input
-                    type="email"
-                    className="field"
-                    placeholder="Email address"
-                    value={email}
-                    onChange={e => setEmail(e.target.value)}
-                  />
-                </div>
+                <input
+                  type="email"
+                  className="field"
+                  placeholder="Email address"
+                  value={email}
+                  onChange={e => setEmail(e.target.value)}
+                />
 
                 {error && <p className="text-xs text-terracotta font-sans">{error}</p>}
 
@@ -152,9 +161,12 @@ export function PreOrderModal({ product, onClose }: Props) {
                   No payment required today. We'll contact you with payment details before your piece enters production.
                 </p>
 
-                <button type="submit" className="btn-primary w-full">
+                <button type="submit" className="btn-primary w-full py-4">
                   Reserve My Piece
                 </button>
+
+                {/* Extra bottom padding for mobile safe area */}
+                <div className="h-4 sm:h-0" />
               </form>
             </>
           )}

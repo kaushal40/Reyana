@@ -52,7 +52,7 @@ export const products: Product[] = [
     sizes: ['XS', 'S', 'M', 'L', 'XL'],
     deliveryEstimate: 'Ships in 8–10 weeks',
     tag: 'Signature',
-    images: ['/women1.png', '/women2.png'],
+    images: ['/women2.png', '/women1.png'],
   },
   {
     id: 'jaipur-wrap-dress',
