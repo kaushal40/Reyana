@@ -4,7 +4,7 @@ export function Footer() {
   return (
     <footer className="bg-indigo text-ivory/70 font-sans">
       {/* Top decorative strip */}
-      <div className="h-1 w-full bg-gradient-to-r from-terracotta via-gold to-sage" />
+      <div className="h-1 w-full bg-gradient-to-r from-terracotta via-gold to-indigo-light" />
 
       <div className="max-w-7xl mx-auto px-6 lg:px-12 py-16 md:py-20">
         <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
@@ -15,7 +15,7 @@ export function Footer() {
               House of Reyana
             </div>
             <div className="font-serif italic text-gold text-sm mb-6">
-              A love letter to our roots
+              Minimalism with a meaning.
             </div>
             <p className="text-xs leading-relaxed text-ivory/50 max-w-xs">
               Contemporary Indian heritage craftsmanship, brought into Western wardrobes.

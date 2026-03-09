@@ -14,6 +14,7 @@ export function PreOrderModal({ product, onClose }: Props) {
   const [email, setEmail] = useState('');
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState('');
+  const [activeImg, setActiveImg] = useState(0);
 
   function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -24,7 +25,7 @@ export function PreOrderModal({ product, onClose }: Props) {
 
   return (
     <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 bg-brown/60 backdrop-blur-sm">
-      <div className="bg-ivory w-full max-w-lg max-h-[92vh] overflow-y-auto relative">
+      <div className="bg-ivory w-full max-w-2xl max-h-[92vh] overflow-y-auto relative">
 
         {/* Top accent strip */}
         <div className="h-1 bg-gradient-to-r from-terracotta via-gold to-sage" />
@@ -32,12 +33,42 @@ export function PreOrderModal({ product, onClose }: Props) {
         {/* Close */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-5 text-brown/40 hover:text-brown text-2xl leading-none transition-colors"
+          className="absolute top-4 right-5 z-10 text-brown/40 hover:text-brown text-2xl leading-none transition-colors"
         >
           ×
         </button>
 
-        <div className="px-8 py-10">
+        {/* Product images */}
+        {product.images && product.images.length > 0 && (
+          <div className="flex gap-1">
+            {/* Main image */}
+            <div className="relative flex-1 aspect-[4/3] overflow-hidden bg-sand">
+              <img
+                src={product.images[activeImg]}
+                alt={product.name}
+                className="w-full h-full object-cover transition-opacity duration-300"
+              />
+            </div>
+            {/* Thumbnails */}
+            {product.images.length > 1 && (
+              <div className="flex flex-col gap-1 w-16">
+                {product.images.map((img, i) => (
+                  <button
+                    key={i}
+                    onClick={() => setActiveImg(i)}
+                    className={`aspect-square overflow-hidden border-2 transition-all duration-200 ${
+                      activeImg === i ? 'border-gold' : 'border-transparent opacity-60 hover:opacity-100'
+                    }`}
+                  >
+                    <img src={img} alt={`View ${i + 1}`} className="w-full h-full object-cover" />
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        )}
+
+        <div className="px-8 py-8">
           {submitted ? (
             <div className="text-center py-8">
               <div className="text-4xl mb-4">✦</div>

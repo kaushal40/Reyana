@@ -26,8 +26,8 @@ function drawFlower(
   ctx.translate(x, y);
   ctx.rotate(rot);
   ctx.globalAlpha = alpha;
-  ctx.strokeStyle = '#C9A84C';
-  ctx.fillStyle = '#C9A84C';
+  ctx.strokeStyle = '#2B6E5C';
+  ctx.fillStyle = '#2B6E5C';
   ctx.lineWidth = 0.7;
   ctx.lineCap = 'round';
 
@@ -96,8 +96,8 @@ export function ChikankariCanvas() {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       const now = Date.now();
 
-      // spawn a bloom roughly every 500ms with slight jitter
-      if (now - lastBloom > 420 + Math.random() * 160) {
+      // spawn a new bloom only when no bloom is currently alive
+      if (blooms.length === 0 && now - lastBloom > 400 + Math.random() * 200) {
         spawnBloom();
         lastBloom = now;
       }

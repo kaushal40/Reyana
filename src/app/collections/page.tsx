@@ -76,11 +76,27 @@ function CollectionsContent() {
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5 md:gap-7">
             {filtered.map(product => (
               <article key={product.id} className="product-card group">
-                {/* Fabric art */}
+                {/* Product visual */}
                 <div
-                  className={`${product.fabricClass} fabric-art aspect-[3/4] relative overflow-hidden cursor-pointer`}
+                  className={`${product.images ? '' : product.fabricClass} fabric-art aspect-[3/4] relative overflow-hidden cursor-pointer`}
                   onClick={() => setPicked(product)}
                 >
+                  {product.images ? (
+                    <>
+                      <img
+                        src={product.images[0]}
+                        alt={product.name}
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                      />
+                      {product.images[1] && (
+                        <img
+                          src={product.images[1]}
+                          alt={`${product.name} detail`}
+                          className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        />
+                      )}
+                    </>
+                  ) : null}
                   {product.tag && (
                     <span className="absolute top-3 left-3 z-10 text-[10px] font-sans tracking-[0.15em] uppercase bg-ivory/90 text-brown px-2.5 py-1">
                       {product.tag}

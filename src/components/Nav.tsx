@@ -28,12 +28,15 @@ export function Nav() {
       <nav className="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-16 md:h-20">
 
         {/* Logo */}
-        <Link href="/" className="flex flex-col items-start leading-none">
-          <span className="font-display text-base md:text-lg font-semibold text-indigo tracking-[0.12em] uppercase">
+        <Link href="/" className="flex items-center gap-2.5" aria-label="House of Reyana">
+          <img
+            src="/logo.png"
+            alt="House of Reyana"
+            className="h-9 w-9 rounded-lg object-cover"
+            style={{ boxShadow: '0 0 0 1.5px #B8A87C' }}
+          />
+          <span className="font-sans text-[10px] md:text-[11px] tracking-[0.22em] uppercase text-indigo/80">
             House of Reyana
-          </span>
-          <span className="font-serif italic text-[10px] text-gold tracking-widest hidden sm:block">
-            A love letter to our roots
           </span>
         </Link>
 

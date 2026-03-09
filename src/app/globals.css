@@ -1,17 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --ivory: #FAFAF5;
-  --cream: #F5EDD8;
-  --sand: #E8D8BC;
-  --terracotta: #B85C38;
-  --indigo: #1B2B5B;
-  --gold: #C9A84C;
-  --brown: #3D2C1E;
+  --ivory:      #FDFCFB;
+  --cream:      #EAF5F0;
+  --sand:       #C5D8D0;
+  --terracotta: #2B6E5C;
+  --indigo:     #1E3935;
+  --gold:       #B8A87C;
+  --brown:      #1A302A;
 }
 
 html { scroll-behavior: smooth; }
@@ -28,19 +28,19 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
-  color: #C9A84C;
+  color: #B8A87C;
 }
 .ornament::before,
 .ornament::after {
   content: '';
   flex: 1;
   height: 1px;
-  background: linear-gradient(to right, transparent, #C9A84C, transparent);
+  background: linear-gradient(to right, transparent, #B8A87C, transparent);
 }
 
 /* ── Chikankari fabric card ─────────────────────────────────── */
 .fabric-chikankari {
-  background: linear-gradient(155deg, #FDFAF4 0%, #F0E8D4 50%, #FDF8F0 100%);
+  background: linear-gradient(155deg, #EAF5F0 0%, #D0E8DF 50%, #EAF5F0 100%);
   position: relative;
   overflow: hidden;
 }
@@ -48,13 +48,13 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.6' opacity='0.18'%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3Cpath d='M40 24 C38 30 32 33 26 35 C32 35 35 41 34 48 C37 42 43 39 50 40 C44 39 41 33 40 24Z' /%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3Ccircle cx='14' cy='14' r='4'/%3E%3Ccircle cx='66' cy='14' r='4'/%3E%3Ccircle cx='14' cy='66' r='4'/%3E%3Ccircle cx='66' cy='66' r='4'/%3E%3Cpath d='M14 14 L14 8 M14 14 L8 14 M14 14 L20 14 M14 14 L14 20'/%3E%3Cpath d='M66 14 L66 8 M66 14 L60 14 M66 14 L72 14 M66 14 L66 20'/%3E%3Cpath d='M14 66 L14 60 M14 66 L8 66 M14 66 L20 66 M14 66 L14 72'/%3E%3Cpath d='M66 66 L66 60 M66 66 L60 66 M66 66 L72 66 M66 66 L66 72'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%231E3935' stroke-width='0.6' opacity='0.18'%3E%3Ccircle cx='40' cy='40' r='10'/%3E%3Cpath d='M40 24 C38 30 32 33 26 35 C32 35 35 41 34 48 C37 42 43 39 50 40 C44 39 41 33 40 24Z' /%3E%3Ccircle cx='40' cy='40' r='3'/%3E%3Ccircle cx='14' cy='14' r='4'/%3E%3Ccircle cx='66' cy='14' r='4'/%3E%3Ccircle cx='14' cy='66' r='4'/%3E%3Ccircle cx='66' cy='66' r='4'/%3E%3Cpath d='M14 14 L14 8 M14 14 L8 14 M14 14 L20 14 M14 14 L14 20'/%3E%3Cpath d='M66 14 L66 8 M66 14 L60 14 M66 14 L72 14 M66 14 L66 20'/%3E%3Cpath d='M14 66 L14 60 M14 66 L8 66 M14 66 L20 66 M14 66 L14 72'/%3E%3Cpath d='M66 66 L66 60 M66 66 L60 66 M66 66 L72 66 M66 66 L66 72'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 80px 80px;
 }
 
-/* ── Block print – indigo ───────────────────────────────────── */
+/* ── Block print – forest green ─────────────────────────────── */
 .fabric-block-indigo {
-  background: linear-gradient(155deg, #1B2B5B 0%, #2D4080 45%, #1B2B5B 100%);
+  background: linear-gradient(155deg, #1E3935 0%, #2D5A52 45%, #1E3935 100%);
   position: relative;
   overflow: hidden;
 }
@@ -66,7 +66,7 @@ body {
   background-size: 60px 60px;
 }
 
-/* ── Terracotta fabric ──────────────────────────────────────── */
+/* ── Terracotta fabric (product visual identity) ────────────── */
 .fabric-terracotta {
   background: linear-gradient(155deg, #C4622D 0%, #D9784E 40%, #A04828 100%);
   position: relative;
@@ -82,7 +82,7 @@ body {
 
 /* ── Sage fabric ────────────────────────────────────────────── */
 .fabric-sage {
-  background: linear-gradient(155deg, #7A8C72 0%, #96A88E 45%, #6A7A62 100%);
+  background: linear-gradient(155deg, #3D8B7A 0%, #5AA898 45%, #2D7060 100%);
   position: relative;
   overflow: hidden;
 }
@@ -90,7 +90,7 @@ body {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23E8C87A' stroke-width='0.6' opacity='0.2'%3E%3Cpath d='M25 8 C20 15 15 20 8 25 C15 30 20 35 25 42 C30 35 35 30 42 25 C35 20 30 15 25 8Z'/%3E%3Ccircle cx='25' cy='25' r='4'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='50' height='50' viewBox='0 0 50 50' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23B8D8D0' stroke-width='0.6' opacity='0.25'%3E%3Cpath d='M25 8 C20 15 15 20 8 25 C15 30 20 35 25 42 C30 35 35 30 42 25 C35 20 30 15 25 8Z'/%3E%3Ccircle cx='25' cy='25' r='4'/%3E%3C/g%3E%3C/svg%3E");
   background-size: 50px 50px;
 }
 
@@ -124,7 +124,7 @@ body {
   position: absolute;
   bottom: 0; left: 0; right: 0;
   height: 6px;
-  background-image: url("data:image/svg+xml,%3Csvg width='24' height='6' viewBox='0 0 24 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 L4 0 L8 6 L12 0 L16 6 L20 0 L24 6' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg width='24' height='6' viewBox='0 0 24 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 6 L4 0 L8 6 L12 0 L16 6 L20 0 L24 6' fill='none' stroke='%23B8A87C' stroke-width='1'/%3E%3C/svg%3E");
   background-repeat: repeat-x;
   background-size: 24px 6px;
 }
@@ -188,8 +188,54 @@ body {
   transform: scale(1.04);
 }
 
+/* ── Green gradient on all light sections ───────────────────── */
+/* Overrides bg-ivory and bg-cream with a radial green fade */
+.bg-ivory {
+  background: radial-gradient(ellipse 160% 120% at 50% 50%, #FDFCFB 10%, #EAF5F0 65%, #C5D8D0 100%) !important;
+}
+.bg-cream {
+  background: radial-gradient(ellipse 160% 120% at 50% 50%, #EAF5F0 5%, #D0E8DF 62%, #BBCFC8 100%) !important;
+}
+
 /* ── Fade-in animation delay utilities ─────────────────────── */
 .delay-100 { animation-delay: 0.1s; }
 .delay-200 { animation-delay: 0.2s; }
 .delay-300 { animation-delay: 0.3s; }
 .delay-500 { animation-delay: 0.5s; }
+
+/* ── Logo wordmark fade-in ──────────────────────────────────── */
+.logo-wordmark {
+  opacity: 0;
+  animation: fadeIn 0.6s ease-out 1.4s forwards;
+}
+
+/* ── Logo petal animation (directional reveal) ──────────────── */
+/*
+ * Each <g> inside LogoMark has an inline style:
+ *   opacity: 0;
+ *   animation: logoReveal ...;
+ *   --logo-from: 'left' | 'right' | 'up' | 'down'
+ *
+ * We use a single keyframe and apply initial transforms via
+ * data attributes so Tailwind purge doesn't strip them.
+ */
+@keyframes logoReveal {
+  from { opacity: 0; }
+  to   { opacity: 1; transform: translate(0, 0); }
+}
+@keyframes logoRevealLeft {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes logoRevealRight {
+  from { opacity: 0; transform: translateX(16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes logoRevealUp {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes logoRevealDown {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

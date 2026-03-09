@@ -8,7 +8,8 @@ import { PreOrderModal } from '@/components/PreOrderModal';
 import { ChikankariCanvas } from '@/components/ChikankariCanvas';
 import { products } from '@/data/products';
 
-const featured = products.filter(p => p.tag === 'Bestseller' || p.tag === 'Signature' || p.tag === 'New').slice(0, 4);
+// All 3 products are featured (1 men + 2 women)
+const featured = products;
 
 export default function HomePage() {
   const [pickedProduct, setPickedProduct] = useState<typeof products[0] | null>(null);
@@ -21,23 +22,32 @@ export default function HomePage() {
       <Nav />
 
       {/* ── HERO ──────────────────────────────────────────────── */}
-      <section className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden bg-ivory border-motif">
-        {/* Background texture */}
-        <div
-          className="absolute inset-0 opacity-[0.04]"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23C9A84C' stroke-width='0.8'%3E%3Cpath d='M50 10 C45 25 35 30 20 35 C35 38 42 48 42 65 C46 50 55 42 72 40 C57 38 52 28 50 10Z'/%3E%3Ccircle cx='50' cy='50' r='6'/%3E%3Ccircle cx='10' cy='10' r='4'/%3E%3Ccircle cx='90' cy='10' r='4'/%3E%3Ccircle cx='10' cy='90' r='4'/%3E%3Ccircle cx='90' cy='90' r='4'/%3E%3C/g%3E%3C/svg%3E")`,
-            backgroundSize: '100px 100px',
-          }}
-        />
-
+      <section
+        className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden border-motif"
+        style={{
+          background: 'radial-gradient(ellipse 110% 90% at 50% 48%, #FDFCFB 15%, #EAF5F0 60%, #C8DDD6 100%)',
+        }}
+      >
         {/* Decorative corner ornaments */}
         <div className="absolute top-24 left-8 md:left-16 text-gold/20 font-serif text-6xl select-none leading-none">✦</div>
         <div className="absolute top-24 right-8 md:right-16 text-gold/20 font-serif text-6xl select-none leading-none">✦</div>
 
         {/* Content */}
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
-          <p className="section-label animate-fade-in mb-6">Est. 2024 · India × West</p>
+
+          {/* Logo */}
+          <div className="flex justify-center mb-8 animate-fade-in">
+            <img
+              src="/logo.png"
+              alt="House of Reyana"
+              className="h-24 w-24 md:h-28 md:w-28 rounded-2xl object-cover"
+              style={{
+                boxShadow: '0 0 0 1.5px #B8A87C, 0 8px 36px rgba(30, 57, 53, 0.22)',
+              }}
+            />
+          </div>
+
+          <p className="section-label animate-fade-in mb-6">India × West</p>
 
           <h1 className="font-display text-5xl sm:text-7xl md:text-8xl lg:text-9xl text-indigo leading-none tracking-[0.04em] mb-6 animate-slide-up">
             House of<br />
@@ -49,11 +59,11 @@ export default function HomePage() {
           </div>
 
           <p className="font-serif italic text-2xl md:text-3xl text-brown/70 mb-10 animate-slide-up delay-200">
-            A love letter to our roots
+            Minimalism with a meaning.
           </p>
 
           <p className="font-sans text-sm text-brown/50 tracking-wide max-w-md mx-auto mb-12 leading-relaxed animate-fade-in delay-300">
-            Indian heritage craftsmanship, reinterpreted for the Western wardrobe.
+            Elevated Western silhouettes infused with authentic Indian textile artistry.
             Hand block printed. Chikankari embroidered. Naturally made.
           </p>
 
@@ -68,7 +78,7 @@ export default function HomePage() {
         </div>
 
         {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in delay-500">
+        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 animate-fade-in delay-500 z-10">
           <span className="text-[10px] font-sans tracking-[0.3em] uppercase text-brown/30">Scroll</span>
           <div className="w-px h-12 bg-gradient-to-b from-gold/40 to-transparent" />
         </div>
@@ -82,15 +92,15 @@ export default function HomePage() {
             <div>
               <p className="section-label mb-6">Our Story</p>
               <blockquote className="font-serif italic text-3xl md:text-4xl text-indigo leading-snug mb-8">
-                "Western fashion is saturated.<br />
+                "Global fashion is saturated.<br />
                 <span className="text-terracotta">Indian craftsmanship is undervalued.</span><br />
                 We exist in that gap."
               </blockquote>
               <div className="w-12 h-px bg-gold mb-8" />
               <p className="font-sans text-sm text-brown/70 leading-loose mb-4">
-                House of Reyana is the first contemporary brand purpose-built to bring Indian
-                heritage craftsmanship into Western wardrobes. We reinterpret wardrobe staples —
-                the shirt, the tee, the dress — through the lens of India's most treasured textile traditions.
+                House of Reyana was born from two sisters — <strong>Shreya</strong> and <strong>Krina Ranch</strong> — who grew up between worlds.
+                One a physician pursuing an MBA at Ivey, the other a tech consultant at Deloitte. Together, they built a brand
+                to bridge what they always felt was missing: authentic Indian soul in the Western everyday wardrobe.
               </p>
               <p className="font-sans text-sm text-brown/70 leading-loose">
                 Every thread is worked by artisan families in Lucknow and Jaipur, paid fairly,
@@ -99,12 +109,11 @@ export default function HomePage() {
             </div>
 
             <div className="grid grid-cols-2 gap-4">
-              {/* Stat cards */}
               {[
                 { num: '3', label: 'Heritage Crafts', sub: 'Block print · Chikankari · Zari' },
                 { num: '12+', label: 'Artisan Families', sub: 'Across Lucknow & Jaipur' },
                 { num: '100%', label: 'Natural Fabrics', sub: 'Cotton · Linen · Silk blends' },
-                { num: '∞', label: 'Generations', sub: 'Of knowledge, passed by hand' },
+                { num: '65%', label: 'Target Margin', sub: 'Direct-to-consumer, zero middlemen' },
               ].map(s => (
                 <div key={s.label} className="bg-ivory p-6 border border-sand">
                   <div className="font-display text-4xl text-terracotta mb-2">{s.num}</div>
@@ -117,8 +126,48 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ── THE FOUNDERS ──────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-ivory">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-14">
+            <p className="section-label mb-4">The Founders</p>
+            <h2 className="font-display text-4xl md:text-5xl text-indigo">
+              Two sisters, one vision.
+            </h2>
+          </div>
+          <div className="grid md:grid-cols-2 gap-1 max-w-3xl mx-auto">
+            {[
+              {
+                initials: 'K',
+                name: 'Krina Ranch',
+                role: 'Co-founder & CEO',
+                background: 'B.Tech · Ex-Deloitte',
+                desc: 'Operational discipline and strategic rigor. Krina brings tech consulting and business acumen to every decision, ensuring Reyana scales with integrity.',
+                bg: 'bg-indigo',
+              },
+              {
+                initials: 'S',
+                name: 'Shreya Ranch',
+                role: 'Co-founder & CMO',
+                background: 'MD · MBA Candidate, Ivey Business School',
+                desc: 'Story and soul. Shreya shapes the brand voice, community, and creative vision — rooted in cultural authenticity and a deep love for Indian craft.',
+                bg: 'bg-terracotta',
+              },
+            ].map(f => (
+              <div key={f.name} className={`${f.bg} p-10 md:p-12 text-white`}>
+                <div className="font-logo italic text-5xl font-bold text-white/20 mb-6 select-none">{f.initials}</div>
+                <p className="font-sans text-xs tracking-[0.25em] uppercase text-white/50 mb-2">{f.role}</p>
+                <h3 className="font-display text-2xl mb-1">{f.name}</h3>
+                <p className="font-sans text-xs text-white/50 mb-4">{f.background}</p>
+                <p className="font-sans text-sm leading-relaxed text-white/75">{f.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* ── THE CRAFT ─────────────────────────────────────────── */}
-      <section className="py-24 md:py-32 bg-ivory">
+      <section className="py-24 md:py-32 bg-cream">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <p className="section-label mb-4">The Art Behind Every Thread</p>
@@ -131,7 +180,6 @@ export default function HomePage() {
             {[
               {
                 name: 'Hand Block Printing',
-                origin: 'Rajasthan',
                 icon: '◈',
                 desc: 'Carved wooden blocks, dipped in natural dye, pressed by hand — one impression at a time. Each print is unique, imperfect in the most beautiful way.',
                 accent: 'bg-indigo text-white',
@@ -139,7 +187,6 @@ export default function HomePage() {
               },
               {
                 name: 'Chikankari',
-                origin: 'Lucknow',
                 icon: '❀',
                 desc: 'Delicate shadow-work embroidery on fine fabric. Thirty-two distinct stitches, each worked by trained hands in the lanes of old Lucknow.',
                 accent: 'bg-terracotta text-white',
@@ -147,7 +194,6 @@ export default function HomePage() {
               },
               {
                 name: 'Natural Fabrics',
-                origin: 'Pan India',
                 icon: '◉',
                 desc: 'Cotton, linen, silk blends — sourced from mills that respect both the land and the weaver. Materials that breathe, age gracefully, and last for decades.',
                 accent: 'bg-sage text-white',
@@ -166,35 +212,56 @@ export default function HomePage() {
       </section>
 
       {/* ── FEATURED PRODUCTS ─────────────────────────────────── */}
-      <section className="py-24 md:py-32 bg-cream">
+      <section className="py-24 md:py-32 bg-ivory">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex items-end justify-between mb-12 md:mb-16">
             <div>
-              <p className="section-label mb-3">First Look</p>
-              <h2 className="font-display text-4xl md:text-5xl text-indigo">Featured Pieces</h2>
+              <p className="section-label mb-3">MVP Collection</p>
+              <h2 className="font-display text-4xl md:text-5xl text-indigo">First Capsule</h2>
             </div>
             <Link href="/collections" className="hidden md:inline-flex font-sans text-xs tracking-[0.2em] uppercase text-brown/50 hover:text-terracotta transition-colors border-b border-current pb-1">
               View All
             </Link>
           </div>
 
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 md:gap-6">
             {featured.map(product => (
               <div key={product.id} className="product-card group cursor-pointer" onClick={() => setPickedProduct(product)}>
-                {/* Fabric art */}
-                <div className={`${product.fabricClass} fabric-art aspect-[3/4] relative overflow-hidden`}>
+                {/* Product visual */}
+                <div className={`${product.images ? '' : product.fabricClass} fabric-art aspect-[3/4] relative overflow-hidden`}>
+                  {product.images && (
+                    <>
+                      <img
+                        src={product.images[0]}
+                        alt={product.name}
+                        className="absolute inset-0 w-full h-full object-cover transition-opacity duration-500 group-hover:opacity-0"
+                      />
+                      {product.images[1] && (
+                        <img
+                          src={product.images[1]}
+                          alt={`${product.name} detail`}
+                          className="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                        />
+                      )}
+                    </>
+                  )}
                   {product.tag && (
                     <span className="absolute top-3 left-3 z-10 text-[10px] font-sans tracking-[0.15em] uppercase bg-ivory/90 text-brown px-2.5 py-1">
                       {product.tag}
                     </span>
                   )}
+                  <span className={`absolute top-3 right-3 z-10 text-[10px] font-sans tracking-[0.12em] uppercase px-2 py-1 ${
+                    product.category === 'men' ? 'bg-indigo/80 text-ivory' : 'bg-terracotta/80 text-ivory'
+                  }`}>
+                    {product.category === 'men' ? "Men's" : "Women's"}
+                  </span>
                   {/* Hover overlay */}
                   <div className="overlay absolute inset-0 bg-indigo/70 flex items-center justify-center">
                     <span className="font-sans text-xs tracking-[0.2em] uppercase text-white border border-white/60 px-5 py-2.5">
                       Pre-Order
                     </span>
                   </div>
-                  {/* Craft label on fabric */}
+                  {/* Craft label */}
                   <div className="absolute bottom-3 left-3 right-3">
                     <span className={`font-sans text-[10px] tracking-widest uppercase ${product.labelColor} opacity-50`}>
                       {product.craft}
@@ -225,7 +292,7 @@ export default function HomePage() {
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='20' fill='none' stroke='%23C9A84C' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='35' fill='none' stroke='%23C9A84C' stroke-width='0.5'/%3E%3C/g%3E%3C/svg%3E")`,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='80' viewBox='0 0 80 80' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='40' cy='40' r='20' fill='none' stroke='%23B8A87C' stroke-width='1'/%3E%3Ccircle cx='40' cy='40' r='35' fill='none' stroke='%23B8A87C' stroke-width='0.5'/%3E%3C/svg%3E")`,
             backgroundSize: '80px 80px',
           }}
         />
@@ -246,7 +313,7 @@ export default function HomePage() {
       </section>
 
       {/* ── COLLECTIONS PREVIEW ───────────────────────────────── */}
-      <section className="py-24 md:py-32 bg-ivory">
+      <section className="py-24 md:py-32 bg-cream">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
             <p className="section-label mb-4">Collections</p>
@@ -258,18 +325,23 @@ export default function HomePage() {
           <div className="grid md:grid-cols-2 gap-1">
             {/* Men's */}
             <Link href="/collections?cat=men" className="group relative overflow-hidden aspect-[4/5] bg-indigo flex flex-col justify-end p-10">
-              <div
-                className="absolute inset-0 opacity-[0.08]"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='12' y='12' width='14' height='14' transform='rotate(45 19 19)' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Crect x='34' y='34' width='14' height='14' transform='rotate(45 41 41)' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Ccircle cx='30' cy='30' r='4' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3C/g%3E")`,
-                  backgroundSize: '60px 60px',
-                }}
+              {/* Cutout — pops on hover */}
+              <img
+                src="/men_cutout.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute bottom-0 right-0 h-[88%] w-auto object-contain object-bottom pointer-events-none
+                           transition-transform duration-500 ease-out
+                           group-hover:scale-105 group-hover:-translate-y-2"
+                style={{ transformOrigin: 'bottom right' }}
               />
-              <div className="relative z-10">
+              {/* Gradient so text stays readable over the cutout */}
+              <div className="absolute inset-0 bg-gradient-to-r from-indigo/90 via-indigo/60 to-transparent" />
+              <div className="relative z-10 max-w-[55%]">
                 <p className="font-sans text-xs tracking-[0.3em] uppercase text-gold/70 mb-3">Men's Collection</p>
                 <h3 className="font-display text-4xl md:text-5xl text-ivory mb-4">For Him</h3>
-                <p className="font-sans text-sm text-ivory/50 mb-6 leading-relaxed">
-                  Chikankari tees, hand block printed shirts, and refined linen. Crafted for a man who values meaning.
+                <p className="font-sans text-sm text-ivory/60 mb-6 leading-relaxed">
+                  Chikankari tees crafted for the man who values quiet luxury and meaningful clothing.
                 </p>
                 <span className="font-sans text-xs tracking-[0.2em] uppercase text-gold border-b border-gold/50 pb-1 group-hover:border-gold transition-colors">
                   Shop Men's →
@@ -279,18 +351,23 @@ export default function HomePage() {
 
             {/* Women's */}
             <Link href="/collections?cat=women" className="group relative overflow-hidden aspect-[4/5] bg-terracotta flex flex-col justify-end p-10">
-              <div
-                className="absolute inset-0 opacity-[0.08]"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3Csvg width='70' height='70' viewBox='0 0 70 70' xmlns='http://www.w3.org/2000/svg'%3E%3Cellipse cx='35' cy='35' rx='14' ry='20' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Cellipse cx='35' cy='35' rx='20' ry='14' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3Ccircle cx='35' cy='35' r='4' fill='none' stroke='%23ffffff' stroke-width='0.8'/%3E%3C/g%3E")`,
-                  backgroundSize: '70px 70px',
-                }}
+              {/* Cutout — pops on hover */}
+              <img
+                src="/women_cutout.png"
+                alt=""
+                aria-hidden="true"
+                className="absolute bottom-0 right-0 h-[92%] w-auto object-contain object-bottom pointer-events-none
+                           transition-transform duration-500 ease-out
+                           group-hover:scale-105 group-hover:-translate-y-2"
+                style={{ transformOrigin: 'bottom right' }}
               />
-              <div className="relative z-10">
+              {/* Gradient so text stays readable over the cutout */}
+              <div className="absolute inset-0 bg-gradient-to-r from-terracotta/95 via-terracotta/65 to-transparent" />
+              <div className="relative z-10 max-w-[55%]">
                 <p className="font-sans text-xs tracking-[0.3em] uppercase text-ivory/50 mb-3">Women's Collection</p>
                 <h3 className="font-display text-4xl md:text-5xl text-ivory mb-4">For Her</h3>
                 <p className="font-sans text-sm text-ivory/70 mb-6 leading-relaxed">
-                  Midi dresses, wrap silhouettes, flowing kaftans, and co-ords. Each piece a conversation starter.
+                  Midi dresses and wrap silhouettes. Modern forms, rooted in centuries of artisan tradition.
                 </p>
                 <span className="font-sans text-xs tracking-[0.2em] uppercase text-ivory/80 border-b border-ivory/40 pb-1 group-hover:border-ivory transition-colors">
                   Shop Women's →
@@ -302,7 +379,7 @@ export default function HomePage() {
       </section>
 
       {/* ── NEWSLETTER ────────────────────────────────────────── */}
-      <section className="py-24 md:py-32 bg-cream">
+      <section className="py-24 md:py-32 bg-ivory">
         <div className="max-w-2xl mx-auto px-6 text-center">
           <div className="text-gold text-2xl mb-6">✦</div>
           <p className="section-label mb-4">Early Access</p>
@@ -329,7 +406,7 @@ export default function HomePage() {
                 value={signupEmail}
                 onChange={e => setSignupEmail(e.target.value)}
                 placeholder="Your email address"
-                className="flex-1 bg-ivory border border-sand border-r-0 px-5 py-4 text-sm font-sans text-brown placeholder-brown/30 focus:outline-none focus:border-gold transition-colors"
+                className="flex-1 bg-cream border border-sand border-r-0 px-5 py-4 text-sm font-sans text-brown placeholder-brown/30 focus:outline-none focus:border-gold transition-colors"
               />
               <button type="submit" className="btn-primary py-4 px-8 text-xs whitespace-nowrap border border-terracotta">
                 Join the List
