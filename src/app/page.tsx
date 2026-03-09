@@ -98,7 +98,7 @@ export default function HomePage() {
               </blockquote>
               <div className="w-12 h-px bg-gold mb-8" />
               <p className="font-sans text-sm text-brown/70 leading-loose mb-4">
-                House of Reyana was born from two sisters — <strong>Shreya</strong> and <strong>Krina Ranch</strong> — who grew up between worlds.
+                House of Reyana was born from two sisters — <strong>Shreya</strong> and <strong>Krina</strong> — who grew up between worlds.
                 One a physician pursuing an MBA at Ivey, the other a tech consultant at Deloitte. Together, they built a brand
                 to bridge what they always felt was missing: authentic Indian soul in the Western everyday wardrobe.
               </p>
@@ -139,7 +139,7 @@ export default function HomePage() {
             {[
               {
                 initials: 'K',
-                name: 'Krina Ranch',
+                name: 'Krina',
                 role: 'Co-founder & CEO',
                 background: 'B.Tech · Ex-Deloitte',
                 desc: 'Operational discipline and strategic rigor. Krina brings tech consulting and business acumen to every decision, ensuring Reyana scales with integrity.',
@@ -147,7 +147,7 @@ export default function HomePage() {
               },
               {
                 initials: 'S',
-                name: 'Shreya Ranch',
+                name: 'Shreya',
                 role: 'Co-founder & CMO',
                 background: 'MD · MBA Candidate, Ivey Business School',
                 desc: 'Story and soul. Shreya shapes the brand voice, community, and creative vision — rooted in cultural authenticity and a deep love for Indian craft.',
